@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- resultType=보내기 parameterType=받는거 -->
+  
+  <mapper namespace = "item.dao.CartDAO">
+  
+  <!--장바구니 넣기  -->
+  	<insert id = "insert" parameterType="CartVO" >
+  		insert into cart(no, id, itemPrice, itemName, itemCnt, itemCode)
+  		values ( seq_cart_no.nextval, #{id}, #{itemPrice}, #{itemName}, #{itemCnt}, #{itemCode})
+  	</insert>
+  	
+  		<!-- 아이템 하나 조회(아이디별) -->
+ 	<select id = "cart" resultType="CartVO">
+ 		SELECT * 
+ 		  FROM cart 
+ 		WHERE id = #{id}
+ 	</select>	
+ 	<!--장바구니 상품 확인  -->
+ 	<select id = "selectName" parameterType="CartVO" resultType="int">
+  SELECT count(*) AS cnt
+	FROM CART
+	WHERE ID = #{id}
+	  AND ITEMNAME = #{itemName}
+ 	</select>
+ 	
+ 	<!-- 장바구니 수량 변경 -->
+ 	<update id = "updateCnt" parameterType="CartVO">
+ 		UPDATE CART 
+  		   SET ITEMCNT = ITEMCNT + #{itemCnt}
+		 WHERE ITEMNAME = #{itemName}
+ 	</update>
+ 	
+ 	<delete id="">
+ 		
+ 	</delete>
+  </mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "member.dao.MemberDAO">
+
+	<!-- resultType은 select 구문에서만 사용 -->
+	<!-- parameterType은 값을 받아야 하는 매개변수가 있는 경우에만 사용 -->
+	
+	<insert id = "insert" parameterType="memberVO" >
+	  insert into m_user(id, userName, userPassword, userAge, userSex, userNumber1, userNumber2, userNumber3)
+		values(#{id}, #{userName}, #{userPassword}, #{userAge}, #{userSex},	#{userNumber1}, #{userNumber2}, #{userNumber3})
+	</insert>
+	
+	<!-- <select id="orderInfo" resultType="orderVO">
+	select userId, orderDate, memberAddr, memberAddr2, memberPost, itemName, itemCount, itemPrice
+	  from orderInfo
+	 where #{userId}
+	</select> -->
+	
+	<select id="login" parameterType="memberVO" resultType="memberVO">
+		select *
+		  from m_user
+		 where id = #{id}
+		   and userPassword = #{userPassword}
+	</select>
+	
+	<!-- <select id="selectTest2" resultType="hashmap">
+		select id, userName name, userPassword password, userAge age
+		  from m_user
+	</select> -->
+</mapper>

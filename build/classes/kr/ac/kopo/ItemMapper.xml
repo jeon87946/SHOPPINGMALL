@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 	<!-- resultType=보내기 parameterType=받는거 -->
+  
+  <mapper namespace = "item.dao.ItemDAO">
+ 
+ 	<!-- 상품 하나 조회 (아이템 코드) -->
+ 	<select id = "ItemInfo" resultType="ItemInfoVO" parameterType= "String">
+ 		SELECT * 
+ 		  FROM ITEMINFO 
+ 		 WHERE ITEMCODE = #{itemCode}
+ 	</select>
+ 	
+ 	<!-- 상품 하나 조회 (아이템명) -->
+ 	<select id = "itemName" resultType="ItemInfoVO" parameterType= "String">
+ 		SELECT * 
+ 		  FROM ITEMINFO 
+ 		 WHERE ITEMNAME = #{ITEMNAME}
+ 	</select>
+ 
+ 	
+ 	<!-- 상품 전체 조희 -->
+ 	<select id="productAll" resultType="ItemInfoVO" >
+ 		select *
+ 		  from iteminfo
+ 		 ORDER BY ITEMCODE  
+ 	</select>
+ 	
+ 	
+ 	
+  </mapper>

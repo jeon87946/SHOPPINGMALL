@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "payment.dao.paymentDAO">
+
+	<insert id = "insert" parameterType="paymentVO">
+	insert into ordersheet(orderNum, receive, userNumber1, userNumber2, userNumber3, userEmail, post, address, detailAddress, orderMsg)
+	VALUES(#{orderNum}, #{receive}, #{userNumber1}, #{userNumber2}, #{userNumber3}, #{userEmail}, #{post}, #{address}, #{detailAddress}, #{orderMsg})
+	</insert>
+
+</mapper>

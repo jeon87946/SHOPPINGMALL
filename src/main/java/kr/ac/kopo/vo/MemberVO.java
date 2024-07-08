@@ -4,20 +4,26 @@ public class MemberVO {
 
 
 	private String id;
-	private String userName;
-	private String userPassword;
-	private int userAge;
-	private String userSex;
-	private String userNumber1;
-	private String userNumber2;
-	private String userNumber3;
-	private String type;
-	private String regDate;
-	private String orderNum;
+	private String Name;
+	private String Password;
+	private String gender;
+	private String email;
+	private String phone;
+	private String postcode;
+	private String home_Address;
+	private String detail_Address;
+	private String reg_Date;
 	
 	public MemberVO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "MemberVO [id=" + id + ", Name=" + Name + ", Password=" + Password + ", gender=" + gender + ", email="
+				+ email + ", phone=" + phone + ", postcode=" + postcode + ", home_Address=" + home_Address
+				+ ", detail_Address=" + detail_Address + ", reg_Date=" + reg_Date + "]";
 	}
 
 	public String getId() {
@@ -28,84 +34,79 @@ public class MemberVO {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getName() {
+		return Name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		Name = name;
 	}
 
-	public String getUserPassword() {
-		return userPassword;
+	public String getPassword() {
+		return Password;
 	}
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setPassword(String password) {
+		Password = password;
 	}
 
-	public int getUserAge() {
-		return userAge;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public String getUserSex() {
-		return userSex;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserSex(String userSex) {
-		this.userSex = userSex;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getUserNumber1() {
-		return userNumber1;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setUserNumber1(String userNumber1) {
-		this.userNumber1 = userNumber1;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getUserNumber2() {
-		return userNumber2;
+	public String getPostcode() {
+		return postcode;
 	}
 
-	public void setUserNumber2(String userNumber2) {
-		this.userNumber2 = userNumber2;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 
-	public String getUserNumber3() {
-		return userNumber3;
+	public String getHome_Address() {
+		return home_Address;
 	}
 
-	public void setUserNumber3(String userNumber3) {
-		this.userNumber3 = userNumber3;
+	public void setHome_Address(String home_Address) {
+		this.home_Address = home_Address;
 	}
 
-	public String getType() {
-		return type;
+	public String getDetail_Address() {
+		return detail_Address;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setDetail_Address(String detail_Address) {
+		this.detail_Address = detail_Address;
 	}
 
-	public String getRegDate() {
-		return regDate;
+	public String getReg_Date() {
+		return reg_Date;
 	}
 
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	public void setReg_Date(String reg_Date) {
+		this.reg_Date = reg_Date;
 	}
 
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", userName=" + userName + ", userPassword=" + userPassword + ", userAge="
-				+ userAge + ", userSex=" + userSex + ", userNumber1=" + userNumber1 + ", userNumber2=" + userNumber2
-				+ ", userNumber3=" + userNumber3 + ", type=" + type + ", regDate=" + regDate + "]";
-	}
+	
 
 	
 }

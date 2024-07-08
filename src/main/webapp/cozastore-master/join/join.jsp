@@ -7,7 +7,7 @@
 <script>
 	let checkForm = function() {
 		
-		let f = document.loginForm
+		let f = document.joinForm
 		
 		if(f.id.value == ''){
 			alert('아이디를 입력해주세요')
@@ -51,7 +51,8 @@
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" name="id" size = "50" placeholder="아이디">
+					<input type="text" name="id" size = "50" placeholder="아이디"> 
+					<button type="button">중복확인</button>
 				</td>
 			</tr>
 			<tr>

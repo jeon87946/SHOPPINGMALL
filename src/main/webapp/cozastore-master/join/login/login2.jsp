@@ -3,12 +3,6 @@
 <html>
 <head>
 	
-	<%-- header>
-	<div>
-		<jsp:include page="../../include/topMenu.jsp"></jsp:include>
-	</div>
-	</header> --%>
-	
     <meta charset="UTF-8">
     <title>Login Page</title>
     <style>
@@ -27,13 +21,14 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            justify-content: center;
+            align-items: center;
         }
         .login-container h2 {
             color: white;
             margin-bottom: 20px;
             text-align: center;
         }
-        .login-container input[type="email"],
         .login-container input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -44,7 +39,6 @@
             color: white;
             font-size: 16px;
         }
-        .login-container input[type="email"]:focus,
         .login-container input[type="password"]:focus {
             border-bottom: 2px solid #00bcd4;
             outline: none;
@@ -74,10 +68,21 @@
 </head>
 	
 <body>
-    <div class="login-container">
-        <form action="loginProcess.jsp" method="post">
+	<header>
+	<div>
+		<jsp:include page="../../include/topMenu.jsp"></jsp:include>
+	</div>
+	</header>
+	<section>
+    <div align = "center" class="login-container">
+    	<br>
+    	<hr>
+    	<h2>로그인</h2>
+    	<br>
+    	<hr>
+        <form action="loginProcess.jsp" method="post" onsubmit="return checkForm()">
             <h2>Login</h2>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="id" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">LOG IN</button>
             <div class="forgots-password">
@@ -85,8 +90,8 @@
    </div>
         </form>
     </div>
-    <%-- <footer>
+     <footer>
 		<jsp:include page="../../include/footer.jsp" />
-	</footer> --%>
+	</footer> 
 </body>
 </html>

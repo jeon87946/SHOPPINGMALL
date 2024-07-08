@@ -23,11 +23,11 @@ public class LoginController implements Controller {
 		request.setCharacterEncoding("utf-8");
 
 		String id = request.getParameter("id");
-		String userPassword = request.getParameter("userPassword");
+		String Password = request.getParameter("Password");
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
-		vo.setUserPassword(userPassword);
+		vo.setPassword(Password);
 		
 		MemberDAO dao = new MemberDAO();
 		MemberVO membervo = dao.login(vo); 
@@ -62,12 +62,12 @@ public class LoginController implements Controller {
 		}else {
 		
 			url = "/ShoppingMall/home.do";
-			msg = membervo.getUserName() + "님 환영합니다";
+			msg = membervo.getName() + "님 환영합니다";
 			
 			//로그인 성공시 로그인 정보 저장하기
 			request.setAttribute("msg", msg);
 			httpSession.setAttribute("LOGIN_USER", membervo);
-			
+			System.out.println("오예스" + membervo);
 			return "/cozastore-master/join/login/LoginDetail.jsp";
 		}
 		

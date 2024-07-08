@@ -6,7 +6,7 @@
 <mapper namespace = "order.dao.orderDAO">
 
 	<insert id = "insert"  parameterType="orderVO">
-		insert into ORDERINFO(ordernum, itemprice, itemcnt, itemcode, itemname, id)
-		values (#{orderNum}, #{itemPrice}, #{itemCnt}, #{itemCode}, #{itemName}, #{id})
+		insert into ORDER_INFO(order_num, item_price, item_cnt, item_code, item_name, id)
+		values (#{order_Num}, #{item_Price}, #{item_Cnt}, #{item_Code}, #{item_Name}, #{id})
 	</insert>
 </mapper>

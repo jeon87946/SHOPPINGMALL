@@ -8,8 +8,8 @@
   
   <!--장바구니 넣기  -->
   	<insert id = "insert" parameterType="CartVO" >
-  		insert into cart(no, id, itemPrice, itemName, itemCnt, itemCode)
-  		values ( seq_cart_no.nextval, #{id}, #{itemPrice}, #{itemName}, #{itemCnt}, #{itemCode})
+  		insert into cart(no, id, item_Price, item_Name, item_Cnt, item_Code)
+  		values ( seq_cart_no.nextval, #{id}, #{item_Price}, #{item_Name}, #{item_Cnt}, #{item_Code})
   	</insert>
   	
   		<!-- 아이템 하나 조회(아이디별) -->
@@ -23,14 +23,14 @@
   SELECT count(*) AS cnt
 	FROM CART
 	WHERE ID = #{id}
-	  AND ITEMNAME = #{itemName}
+	  AND ITEM_NAME = #{item_Name}
  	</select>
  	
  	<!-- 장바구니 수량 변경 -->
  	<update id = "updateCnt" parameterType="CartVO">
  		UPDATE CART 
-  		   SET ITEMCNT = ITEMCNT + #{itemCnt}
-		 WHERE ITEMNAME = #{itemName}
+  		   SET ITEM_CNT = ITEM_CNT + #{item_Cnt}
+		 WHERE ITEM_NAME = #{item_Name}
  	</update>
  	
  	<delete id="">

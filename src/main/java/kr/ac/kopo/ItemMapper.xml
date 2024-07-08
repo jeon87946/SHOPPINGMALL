@@ -9,23 +9,23 @@
  	<!-- 상품 하나 조회 (아이템 코드) -->
  	<select id = "ItemInfo" resultType="ItemInfoVO" parameterType= "String">
  		SELECT * 
- 		  FROM ITEMINFO 
- 		 WHERE ITEMCODE = #{itemCode}
+ 		  FROM ITEM_INFO 
+ 		 WHERE ITEM_CODE = #{item_Code}
  	</select>
  	
  	<!-- 상품 하나 조회 (아이템명) -->
  	<select id = "itemName" resultType="ItemInfoVO" parameterType= "String">
  		SELECT * 
- 		  FROM ITEMINFO 
- 		 WHERE ITEMNAME = #{ITEMNAME}
+ 		  FROM ITEM_INFO 
+ 		 WHERE ITEM_NAME = #{ITEM_NAME}
  	</select>
  
  	
  	<!-- 상품 전체 조희 -->
  	<select id="productAll" resultType="ItemInfoVO" >
  		select *
- 		  from iteminfo
- 		 ORDER BY ITEMCODE  
+ 		  from item_info
+ 		 ORDER BY ITEM_CODE  
  	</select>
  	
  	

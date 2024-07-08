@@ -39,7 +39,8 @@
 						</td>
 						<td align = "right">
 							<c:if test ="${not empty LOGIN_USER}">
-								[${LOGIN_USER.userName} 님 ]
+							
+								[${LOGIN_USER.name} 님 ]
 							</c:if>
 							<c:if test = "${empty LOGIN_USER}">
 								GUEST

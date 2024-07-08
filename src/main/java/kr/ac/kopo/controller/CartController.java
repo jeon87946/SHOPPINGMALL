@@ -24,18 +24,18 @@ public class CartController implements Controller {
 		}
 		
      	  String id = loginVO.getId();
-		  int itemPrice = Integer.parseInt(request.getParameter("itemPrice"));
-		  String itemName = request.getParameter("itemName");
-		  int itemCnt = Integer.parseInt(request.getParameter("num-product"));
-		  String itemCode = request.getParameter("itemCode");
+     	  String item_Price = request.getParameter("itemprice");
+		  String item_Name = request.getParameter("itemName");
+		  int item_Cnt = Integer.parseInt(request.getParameter("num-product"));
+		  String item_Code = request.getParameter("itemCode");
 		  
 		  CartVO cartVO = new CartVO();
 		 
 		  cartVO.setId(id);
-		  cartVO.setItemCnt(itemCnt);
-		  cartVO.setItemPrice(itemPrice);
-		  cartVO.setItemName(itemName);
-		  cartVO.setItemCode(itemCode);
+		  cartVO.setItem_Cnt(item_Cnt);
+		  cartVO.setItem_Price(item_Price);
+		  cartVO.setItem_Name(item_Name);
+		  cartVO.setItem_Code(item_Code);
 		  
 		  CartDAO dao = new CartDAO();
 		  int cnt = dao.selectName(cartVO);

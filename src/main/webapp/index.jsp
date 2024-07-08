@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -587,8 +588,8 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">			
-						<a href="/ShoppingMall/product-detail.do?itemCode=${item.itemCode}">		
-								<img src= "${item.itemImg}">
+						<a href="/ShoppingMall/product-detail.do?item_Code=${item.item_Code}">		
+								<img src= "${item.item_Img}">
 						</a>										
 							<!-- <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -598,12 +599,12 @@
 						
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="/ShoppingMall/product-detail.do?itemCode=${item.itemCode}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									${item.itemName}
+								<a href="/ShoppingMall/product-detail.do?item_Code=${item.item_Code}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									${item.item_Name}
 								</a>
 
 								<span class="stext-105 cl3">
-									₩ ${item.itemPrice}
+									₩<fmt:formatNumber value="${item.item_Price}" pattern="#,###"/>
 								</span>
 							</div>
 

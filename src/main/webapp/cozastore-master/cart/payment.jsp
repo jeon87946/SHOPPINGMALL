@@ -17,50 +17,34 @@
 		f.receive.focus()
 		return false
 	}
-	if(f.name.value == ''){
-		alert('이름을 입력해주세요')
-		f.name.focus()
-		return false
-	}
-	if(f.number1.value == ''){
+	
+	if(f.phone.value == ''){
 		alert('전화번호를 입력해주세요')
-		f.number1.focus()
+		f.phone.focus()
 		return false
 	}
-	if(f.number2.value == ''){
-		alert('전화번호를 입력해주세요')
-		f.number2.focus()
+	if(f.email.value == ''){
+		alert('이메일을 입력해주세요')
+		f.email.focus()
 		return false
 	}
-	if(f.number3.value == ''){
-		alert('전화번호를 입력해주세요')
-		f.number3.focus()
+	if(f.postcode.value == ''){
+		alert('우편번호를 입력해주세요')
+		f.postcode.focus()
 		return false
 	}
-	if(f.post.value == ''){
+	if(f.basicAddr.value == ''){
 		alert('주소를 입력해주세요')
-		f.post.focus()
+		f.basicAddr.focus()
+		return false
+	}
+	if(f.detailAddress.value == ''){
+		alert('상세주소를 입력해주세요')
+		f.detailAddress.focus()
 		return false
 	}
 } 
-	/* let checkForm = function() {
-		
-		let f = document.orderSheet
-		
-		if(isNull(f.receive, '아이디를 입력해주세요')) {
-			return false
-		}
-		if(isNull(f.pwd, '비밀번호를 입력해주세요')) {
-			return false
-		}
-		if(isNull(f.name, '이름을 입력해주세요')) {
-			return false
-		}
-		if(isNull(f.callno, '전화번호를 입력해주세요')) {
-			return false
-		}
-		return true
-	} */
+	
 </script>
 
 <script>
@@ -116,20 +100,15 @@ function sample6_execDaumPostcode() {
 		
 				<%--  <c:forEach var="user" items="${LOGIN_USER}"> --%>
 			<tr>
-				<th width="50%">수령인</th>
+				<th>이름</th>
 				<td>
-					<input type="text" name="receive">
+					<input type="text" name="receive" size="20%" placeholder="mm">
 				</td>
-			</tr>
-			
+			</tr>				
 			<tr>
 				<th width="10%">휴대전화</th>
 				<td>
-				
-				
-					<input type="text" name="number1" size="7%" placeholder="예시) 011"> -
-					<input type="text" name="number2" size="7%" placeholder="0000"> -
-					<input type="text" name="number3" size="7%" placeholder="0000">
+					<input type="text" name="phone" size="20%" placeholder="010-1234-5678">
 				</td>
 			</tr>
 				 <%-- </c:forEach> --%>
@@ -148,7 +127,8 @@ function sample6_execDaumPostcode() {
 				</th>
 			</tr>	
 </table>
-<table border="1">
+			</fieldset>
+		<table border="1">
 			<TH>우편번호</TH>
 			  <TD>
 			    <input type="text" name="post" size="7" id="sample6_postcode" placeholder="우편번호">

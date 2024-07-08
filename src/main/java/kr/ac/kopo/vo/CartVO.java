@@ -3,10 +3,10 @@ package kr.ac.kopo.vo;
 public class CartVO {
 	
 	private String id;
-	private int itemPrice;
-	private String itemName;
-	private int itemCnt;
-	private String itemCode;
+	private String item_Price;
+	private String item_Name;
+	private int item_Cnt;
+	private String item_Code;
 	
 	public CartVO() {
 		// TODO Auto-generated constructor stub
@@ -14,8 +14,8 @@ public class CartVO {
 
 	@Override
 	public String toString() {
-		return "CartVO [id=" + id + ", itemPrice=" + itemPrice + ", itemName=" + itemName + ", itemCnt=" + itemCnt
-				+ ", itemCode=" + itemCode + "]";
+		return "CartVO [id=" + id + ", item_Price=" + item_Price + ", item_Name=" + item_Name + ", item_Cnt=" + item_Cnt
+				+ ", item_Code=" + item_Code + "]";
 	}
 
 	public String getId() {
@@ -26,38 +26,42 @@ public class CartVO {
 		this.id = id;
 	}
 
-	public int getItemPrice() {
-		return itemPrice;
+	public String getItem_Price() {
+		return item_Price;
 	}
 
-	public void setItemPrice(int itemPrice) {
-		this.itemPrice = itemPrice;
+	public void setItem_Price(String item_Price) {
+		this.item_Price = item_Price;
 	}
 
-	public String getItemName() {
-		return itemName;
+	public String getItem_Name() {
+		return item_Name;
 	}
 
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public void setItem_Name(String item_Name) {
+		this.item_Name = item_Name;
 	}
 
-	public int getItemCnt() {
-		return itemCnt;
+	public int getItem_Cnt() {
+		return item_Cnt;
 	}
 
-	public void setItemCnt(int itemCnt) {
-		this.itemCnt = itemCnt;
+	public void setItem_Cnt(int item_Cnt) {
+		this.item_Cnt = item_Cnt;
 	}
 
-	public String getItemCode() {
-		return itemCode;
+	public String getItem_Code() {
+		return item_Code;
 	}
 
-	public void setItemCode(String itemCode) {
-		this.itemCode = itemCode;
+	public void setItem_Code(String item_Code) {
+		this.item_Code = item_Code;
 	}
 
+	
+
+	
+	
 
 	
 	

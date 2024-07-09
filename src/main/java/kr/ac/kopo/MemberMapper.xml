@@ -10,7 +10,7 @@
 	
 	<insert id = "insert" parameterType="memberVO" >
 	  insert into m_user(id, Name, Password,  gender, phone, POSTCODE, HOME_ADDRESS, DETAIL_ADDRESS )
-		values(#{id}, #{Name}, #{Password},  #{gender},	#{PHONE}, #{POSTCODE}, #{HOME_ADDRESS}, #{DETAIL_ADDRESS} )
+		values(#{id}, #{Name}, #{Password},  #{gender},	#{PHONE}, #{POSTCODE}, #{HOMEADDRESS}, #{DETAILADDRESS} )
 	</insert>
 	
 	<!-- <select id="orderInfo" resultType="orderVO">

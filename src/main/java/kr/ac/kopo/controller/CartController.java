@@ -24,32 +24,35 @@ public class CartController implements Controller {
 		}
 		
      	  String id = loginVO.getId();
-     	  String item_Price = request.getParameter("itemprice");
-		  String item_Name = request.getParameter("itemName");
-		  int item_Cnt = Integer.parseInt(request.getParameter("num-product"));
-		  String item_Code = request.getParameter("itemCode");
+     	  String itemPrice = request.getParameter("itemPrice");
+		  String itemName = request.getParameter("itemName");
+		  int itemCnt = Integer.parseInt(request.getParameter("num-product"));
+		  String itemCode = request.getParameter("itemCode");
 		  
 		  CartVO cartVO = new CartVO();
 		 
 		  cartVO.setId(id);
-		  cartVO.setItem_Cnt(item_Cnt);
-		  cartVO.setItem_Price(item_Price);
-		  cartVO.setItem_Name(item_Name);
-		  cartVO.setItem_Code(item_Code);
+		  cartVO.setItemCnt(itemCnt);
+		  cartVO.setItemPrice(itemPrice);
+		  cartVO.setItemName(itemName);
+		  cartVO.setItemCode(itemCode);
 		  
 		  CartDAO dao = new CartDAO();
 		  int cnt = dao.selectName(cartVO);
 		  
 		  //수량변경
 		  if(cnt == 0) {
-			/* System.out.println("cartcart"+ cartVO); */
 		  dao.insert(cartVO);
-		  session.setAttribute("cart", cartVO);
+		  session.setAttribute("orderList", cartVO);
 		  }else if(cnt <= 1) {
 			  dao.update(cartVO);
-			  session.setAttribute("cart", cartVO);
+			  session.setAttribute("orderList", cartVO);
+			 
 		  }
-		  return "/cozastore-master/product/product.jsp";
+		  System.out.println(cartVO);
+		  
+		  
+		  return "/shopping-cart.do";
 	}
 
 }

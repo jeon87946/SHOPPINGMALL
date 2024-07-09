@@ -16,24 +16,15 @@ public class JoinController implements Controller{
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
-		String userName = request.getParameter("userName");
-		String userPassword = request.getParameter("userPassword");
-		int userAge = Integer.parseInt(request.getParameter("userAge"));
-		String userSex = request.getParameter("userSex");
-		String userNumber1 = request.getParameter("userNumber1");
-		String userNumber2 = request.getParameter("userNumber1");
-		String userNumber3 = request.getParameter("userNumber1");
+		String Name = request.getParameter("Name");
+		String Password = request.getParameter("Password");
+		
 		
 		MemberVO member = new MemberVO();
 		
 		member.setId(id);
-		member.setUserName(userName);
-		member.setUserPassword(userPassword);
-		member.setUserAge(userAge);
-		member.setUserSex(userSex);
-		member.setUserNumber1(userNumber1);
-		member.setUserNumber2(userNumber2);
-		member.setUserNumber3(userNumber3);
+		member.setName(Name);
+		member.setPassword(Password);
 		
 		MemberDAO dao = new MemberDAO();
 		dao.insert(member);

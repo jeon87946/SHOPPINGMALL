@@ -38,6 +38,15 @@
 	<link rel="stylesheet" type="text/css" href="/ShoppingMall/cozastore-master/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/ShoppingMall/cozastore-master/css/main.css">
 <!--===============================================================================================-->
+
+<script src="/ShoppingMall/cozastore-master/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<script>
+function paymentOneItem(){
+		$(paymentForm.itemCnt).val($(".num-product").val())
+		return true;
+}
+</script>
 </head>
 <body class="animsition">
 	
@@ -161,49 +170,49 @@
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="${item.item_Img}">
+								<div class="item-slick3" data-thumb="${item.itemImg}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="${item.item_Img}" alt="IMG-PRODUCT">
+										<img src="${item.itemImg}" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img}">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.itemImg}">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
 								</div>
 
-								 <div class="item-slick3" data-thumb="${item.item_Img2}">
+								 <div class="item-slick3" data-thumb="${item.itemImg2}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="${item.item_Img2}" alt="IMG-PRODUCT">
+										<img src="${item.itemImg2}" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img2}">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.itemImg2}">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
 								</div>
 
-								 <div class="item-slick3" data-thumb="${item.item_Img3}">
+								 <div class="item-slick3" data-thumb="${item.itemImg3}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="${item.item_Img3}" alt="IMG-PRODUCT">
+										<img src="${item.itemImg3}" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img3}">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-								
-								 <div class="item-slick3" data-thumb="${item.item_Img4}">
-									<div class="wrap-pic-w pos-relative">
-										<img src="${item.item_Img4}" alt="IMG-PRODUCT">
-
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img4}">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.itemImg3}">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
 								</div>
 								
-								 <div class="item-slick3" data-thumb="${item.item_Img5}">
+								 <div class="item-slick3" data-thumb="${item.itemImg4}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="${item.item_Img5}" alt="IMG-PRODUCT">
+										<img src="${item.itemImg4}" alt="IMG-PRODUCT">
+
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.itemImg4}">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+								
+								 <div class="item-slick3" data-thumb="${item.itemImg5}">
+									<div class="wrap-pic-w pos-relative">
+										<img src="${item.itemImg5}" alt="IMG-PRODUCT">
 
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img5}">
 											<i class="fa fa-expand"></i>
@@ -211,11 +220,11 @@
 									</div>
 								</div>
 								
-								 <div class="item-slick3" data-thumb="${item.item_Img6}">
+								 <div class="item-slick3" data-thumb="${item.itemImg6}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="${item.item_Img6}" alt="IMG-PRODUCT">
+										<img src="${item.itemImg6}" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img6}">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.itemImg6}">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
@@ -228,15 +237,15 @@
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 					
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							${item.item_Name}
+							${item.itemName}
 						</h4>
 					
 						<span class="mtext-106 cl2">
-							₩<fmt:formatNumber value="${item.item_Price}" pattern="#,###"/>
+							₩<fmt:formatNumber value="${item.itemPrice}" pattern="#,###"/>
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
-							${item.item_Explain}
+							${item.itemExplain}
 						</p>
 						
 						
@@ -293,20 +302,20 @@
 										</div>
 									</div>
 							
-									<input type="hidden"  name="itemCode" value= "${item.item_Code}">
-									<input type="hidden"  name="itemPrice" value= "${item.item_Price}">
-									<input type="hidden" name="itemName" value= "${item.item_Name}">
+									<input type="hidden"  name="itemCode" value= "${item.itemCode}">
+									<input type="hidden"  name="itemPrice" value= "${item.itemPrice}">
+									<input type="hidden" name="itemName" value= "${item.itemName}">
 									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 										장바구니
 									</button>
 								</div>
 							</div>	
 							</form>
-							<form action ="payment.do" method="post">
-								<input type="hidden" name="itemPrice" value="${item.item_Price}">
-								<input type="hidden" name="itemCnt" value="${item.item_Cnt}">
-								<input type="hidden"  name="itemCode" value= "num-product">
-								<input type="hidden" name="itemName" value= "${item.item_Name}">
+							<form action ="payment.do" method="post" id="paymentForm" onsubmit="return paymentOneItem()">
+								<input type="hidden" name="itemPrice" value="${item.itemPrice}">
+								<input type="hidden" name="itemCnt">
+								<input type="hidden"  name="itemCode" value= "${item.itemCode}">
+								<input type="hidden" name="itemName" value= "${item.itemName}">
 								<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 									결제
 								</button>
@@ -362,7 +371,7 @@
 						<div class="tab-pane fade show active" id="description" role="tabpanel">
 							<div class="how-pos2 p-lr-15-md">
 								<p class="stext-102 cl6">
-								  ${item.item_Explain}
+								  ${item.itemExplain}
 								</p>
 							</div>
 						</div>
@@ -398,7 +407,7 @@
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												${item.item_Fabric}
+												${item.itemFabric}
 											</span>
 										</li>
 										 <li class="flex-w flex-t p-b-7">
@@ -407,7 +416,7 @@
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												${item.item_Made}
+												${item.itemMade}
 											</span>
 										</li>
 
@@ -541,8 +550,8 @@
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-pic hov-img0">
-								<a href="/ShoppingMall/product-detail.do?itemCode=${item.item_Code}">
-								<img src="${item.item_Img}" alt="IMG-PRODUCT">
+								<a href="/ShoppingMall/product-detail.do?itemCode=${item.itemCode}">
+								<img src="${item.itemImg}" alt="IMG-PRODUCT">
 								</a>
 								
 								<%-- <a href="/ShoppingMall/product-detail.do?itemCode=${item.itemCode}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
@@ -552,12 +561,12 @@
 
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
-									<a href="/ShoppingMall/product-detail.do?itemCode=${item.item_Code}s" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-										${item.item_Name}
+									<a href="/ShoppingMall/product-detail.do?itemCode=${item.itemCode}s" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+										${item.itemName}
 									</a>
 
 									<span class="stext-105 cl3">
-										₩<fmt:formatNumber value="${item.item_Price}" pattern="#,###"/>
+										₩<fmt:formatNumber value="${item.itemPrice}" pattern="#,###"/>
 									</span>
 								</div>
 
@@ -688,7 +697,7 @@
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"> 
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="itemCnt" value="1">
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="itemCnt">
 
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
@@ -735,7 +744,7 @@
 	</div>
 
 <!--===============================================================================================-->	
-	<script src="/ShoppingMall/cozastore-master/vendor/jquery/jquery-3.2.1.min.js"></script>
+	
 <!--===============================================================================================-->
 	<script src="/ShoppingMall/cozastore-master/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->

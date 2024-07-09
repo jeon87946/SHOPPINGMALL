@@ -6,23 +6,43 @@
   
   <mapper namespace = "item.dao.ItemDAO">
  
+ 	<resultMap type="itemInfoVO" id="itemInfoMap">
+		<result column="item_code" property="ItemCode"/> <!-- reg_date를 regDate(직관적인 이름) 부여 -->
+		<result column="item_name" property="ItemName"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="brand_code" property="BrandCode"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="brand_name" property="BrandName"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_type" property="ItemType"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_price" property="ItemPrice"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_tag" property="ItemTag"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_cnt" property="ItemCnt"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_img" property="ItemImg"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_img2" property="ItemImg2"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_img3" property="ItemImg3"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_img4" property="ItemImg4"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_img5" property="ItemImg5"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_img6" property="ItemImg6"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_explain" property="ItemExplain"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_made" property="ItemMade"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+		<result column="item_fabric" property="ItemFabric"/> <!-- resultMap으로 reg_date 값을 넣을 수 있게 함 -->
+	</resultMap>
+ 
  	<!-- 상품 하나 조회 (아이템 코드) -->
  	<select id = "ItemInfo" resultType="ItemInfoVO" parameterType= "String">
  		SELECT * 
  		  FROM ITEM_INFO 
- 		 WHERE ITEM_CODE = #{item_Code}
+ 		 WHERE ITEM_CODE = #{itemCode}
  	</select>
  	
  	<!-- 상품 하나 조회 (아이템명) -->
  	<select id = "itemName" resultType="ItemInfoVO" parameterType= "String">
  		SELECT * 
  		  FROM ITEM_INFO 
- 		 WHERE ITEM_NAME = #{ITEM_NAME}
+ 		 WHERE ITEM_NAME = #{ITEMNAME}
  	</select>
  
  	
  	<!-- 상품 전체 조희 -->
- 	<select id="productAll" resultType="ItemInfoVO" >
+ 	<select id="productAll" resultMap="itemInfoMap" >
  		select *
  		  from item_info
  		 ORDER BY ITEM_CODE  

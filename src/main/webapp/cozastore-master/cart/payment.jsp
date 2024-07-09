@@ -33,14 +33,14 @@
 		f.postcode.focus()
 		return false
 	}
-	if(f.basicAddr.value == ''){
+	if(f.home_address.value == ''){
 		alert('주소를 입력해주세요')
-		f.basicAddr.focus()
+		f.home_address.focus()
 		return false
 	}
-	if(f.detailAddress.value == ''){
+	if(f.detail_Address.value == ''){
 		alert('상세주소를 입력해주세요')
-		f.detailAddress.focus()
+		f.detail_Address.focus()
 		return false
 	}
 } 
@@ -98,7 +98,6 @@ function sample6_execDaumPostcode() {
 	<form name = "orderSheet" action="/ShoppingMall/paymentpro.do" method="post" onsubmit="return checkForm()">
 		<table style ="width:50%" border="1">
 		
-				<%--  <c:forEach var="user" items="${LOGIN_USER}"> --%>
 			<tr>
 				<th>이름</th>
 				<td>
@@ -120,49 +119,55 @@ function sample6_execDaumPostcode() {
 			</tr>
 			
 			<tr>
-				<th width="50%">배송메시지
+				<th width="50%">배송메시지</th>
 				<td>
 					<input type="text" name="orderMsg" size="50%" placeholder="예시: 부재시 문앞에 두고 가주세요">
 				</td>
-				</th>
 			</tr>	
-</table>
-			</fieldset>
-		<table border="1">
-			<TH>우편번호</TH>
-			  <TD>
-			    <input type="text" name="post" size="7" id="sample6_postcode" placeholder="우편번호">
+
+			<tr>
+			<th>우편번호</th>
+			  <td>
+			    <input type="text" name="postcode" size="7" id="sample6_postcode" placeholder="우편번호">
 			    <input type="button" class="btn btn-primary btn-sm" value="우편번호찾기" onclick="sample6_execDaumPostcode()">
-			  </TD>
-			</TR>
-			<TR>
-			  <TH>주소</TH>
-			  <TD>
-			    <input type="text" name="basicAddr" size="40" id="sample6_address" placeholder="주소">
+			  </td>
+			</tr>
+			<tr>
+			  <th>주소</th>
+			  <td>
+			    <input type="text" name="home_address" size="40" id="sample6_address" placeholder="주소">
 			    <br>
-			    <input type="text" name="detailAddr" size="40" id="sample6_address2" placeholder="상세주소">
-			  </TD>
-			</TR>
-				
-			<br>
+			    <input type="text" name="detail_Address" size="40" id="sample6_address2" placeholder="상세주소">
+			  </td>
+			</tr>
+			<tr>
+			<th>결제방법 : </th>
+			<td><input type="radio" value="무통장" checked/>무통장
+				<input type="radio" value="카드" />카드
+			</td>		
+			
+			</tr>				
 </table>	
-		<c:forEach var="cart" items="${LoginCart}">
+				
+		<c:choose>
+		<c:when test="${not empty order}"> <!-- PaymentController  -->
+			<input type="text"  name="itemPrice" value= "${order.itemPrice}">
+			<input type="text"  name="itemName" value= "${order.itemName}">
+			<input type="text"  name="itemCnt" value= "${order.itemCnt}">
+			<input type="text"  name="itemCode" value= "${order.itemCode}">
+			<input type="text" name="id" value="${order.id}">
+		</c:when>
+		<c:when test="${not empty cartList}"> <!-- CartDetailController -->
+		<c:forEach var="cart" items="${cartList}">
 			<input type="hidden"  name="itemPrice" value= "${cart.itemPrice}">
 			<input type="hidden"  name="itemName" value= "${cart.itemName}">
 			<input type="hidden"  name="itemCnt" value= "${cart.itemCnt}">
 			<input type="hidden"  name="itemCode" value= "${cart.itemCode}">
 			<input type="hidden"  name="id" value= "${cart.id}">
-		</c:forEach>
-		<c:if test="${not empty order}">
-		 	<input type="hidden"  name="itemPrice" value= "${order.itemPrice}">
-			<input type="hidden"  name="itemName" value= "${order.itemName}">
-			<input type="hidden"  name="itemCnt" value= "${order.itemCnt}">
-			<input type="hidden"  name="itemCode" value= "${order.itemCode}">
-			<input type="hidden" name="id" value="NonMember">
-		</c:if>	
-				<td>결제방법 : </td>
-				<td><input type="radio" value="무통장" checked/>무통장</td>		
-			<br>
+		</c:forEach>		
+		</c:when>		
+		</c:choose>
+			
 			<button type="submit">결제</button>
 
 			

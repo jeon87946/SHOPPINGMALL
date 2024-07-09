@@ -10,9 +10,9 @@ public class MemberVO {
 	private String email;
 	private String phone;
 	private String postcode;
-	private String home_Address;
-	private String detail_Address;
-	private String reg_Date;
+	private String homeAddress;
+	private String detailAddress;
+	private String regDate;
 	
 	public MemberVO() {
 		super();
@@ -22,8 +22,8 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", Name=" + Name + ", Password=" + Password + ", gender=" + gender + ", email="
-				+ email + ", phone=" + phone + ", postcode=" + postcode + ", home_Address=" + home_Address
-				+ ", detail_Address=" + detail_Address + ", reg_Date=" + reg_Date + "]";
+				+ email + ", phone=" + phone + ", postcode=" + postcode + ", homeAddress=" + homeAddress
+				+ ", detailAddress=" + detailAddress + ", regDate=" + regDate + "]";
 	}
 
 	public String getId() {
@@ -82,29 +82,33 @@ public class MemberVO {
 		this.postcode = postcode;
 	}
 
-	public String getHome_Address() {
-		return home_Address;
+	public String getHomeAddress() {
+		return homeAddress;
 	}
 
-	public void setHome_Address(String home_Address) {
-		this.home_Address = home_Address;
+	public void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
 	}
 
-	public String getDetail_Address() {
-		return detail_Address;
+	public String getDetailAddress() {
+		return detailAddress;
 	}
 
-	public void setDetail_Address(String detail_Address) {
-		this.detail_Address = detail_Address;
+	public void setDetailAddress(String detailAddress) {
+		this.detailAddress = detailAddress;
 	}
 
-	public String getReg_Date() {
-		return reg_Date;
+	public String getRegDate() {
+		return regDate;
 	}
 
-	public void setReg_Date(String reg_Date) {
-		this.reg_Date = reg_Date;
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
+
+	
+
+	
 
 	
 

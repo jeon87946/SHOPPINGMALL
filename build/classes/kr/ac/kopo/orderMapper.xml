@@ -7,6 +7,6 @@
 
 	<insert id = "insert"  parameterType="orderVO">
 		insert into ORDER_INFO(order_num, item_price, item_cnt, item_code, item_name, id)
-		values (#{order_Num}, #{item_Price}, #{item_Cnt}, #{item_Code}, #{item_Name}, #{id})
+		values (#{orderNum}, #{itemPrice}, #{itemCnt}, #{itemCode}, #{itemName}, #{id})
 	</insert>
 </mapper>

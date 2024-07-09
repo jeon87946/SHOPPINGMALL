@@ -4,7 +4,7 @@ public class OrderVO {
 
 	 private String orderDate;
 	 private String orderNum;
-	 private int itemPrice;
+	 private String itemPrice;
 	 private int itemCnt;
 	 private String itemCode;
 	 private String itemName;
@@ -44,12 +44,12 @@ public class OrderVO {
 	}
 
 
-	public int getItemPrice() {
+	public String getItemPrice() {
 		return itemPrice;
 	}
 
 
-	public void setItemPrice(int itemPrice) {
+	public void setItemPrice(String itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 
@@ -92,6 +92,9 @@ public class OrderVO {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+
+	
 
 
 	

@@ -6,8 +6,8 @@
 <mapper namespace = "payment.dao.paymentDAO">
 
 	<insert id = "insert" parameterType="paymentVO">
-	insert into order_sheet(order_Num, receive, PHONE, Email, POSTCODE, HOME_address, detail_Address, order_Msg)
-	VALUES(#{orderNum}, #{receive}, #{PHONE}, #{Email}, #{POSTCODE}, #{HOME_address}, #{detail_Address}, #{order_Msg})
+	insert into order_sheet(order_Num, receive, PHONE, Email, POSTCODE, HOME_Address, detail_Address, order_Msg)
+	VALUES(#{orderNum}, #{receive}, #{phone}, #{Email}, #{postcode}, #{homeAddress}, #{detailAddress}, #{orderMsg})
 	</insert>
 
 </mapper>

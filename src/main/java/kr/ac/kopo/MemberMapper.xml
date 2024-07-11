@@ -5,12 +5,17 @@
 
 <mapper namespace = "member.dao.MemberDAO">
 
+<resultMap type="memberVO" id="memberMap">
+	<result column="home_address" property="homeAddress"/>
+	<result column="detail_address" property="detailAddress"/>
+	<result column="reg_date" property="regDate"/>
+</resultMap>	
 	<!-- resultType은 select 구문에서만 사용 -->
 	<!-- parameterType은 값을 받아야 하는 매개변수가 있는 경우에만 사용 -->
 	
 	<insert id = "insert" parameterType="memberVO" >
-	  insert into m_user(id, Name, Password,  gender, phone, POSTCODE, HOME_ADDRESS, DETAIL_ADDRESS )
-		values(#{id}, #{Name}, #{Password},  #{gender},	#{PHONE}, #{POSTCODE}, #{HOMEADDRESS}, #{DETAILADDRESS} )
+	  insert into userinfo@test_link(id, Name, Password, gender, phone, POSTCODE, HOME_ADDRESS, DETAIL_ADDRESS )
+		values(#{id}, #{Name}, #{Password}, #{gender},	#{phone}, #{postcode}, #{homeAddress}, #{detailAddress} )
 	</insert>
 	
 	<!-- <select id="orderInfo" resultType="orderVO">
@@ -19,9 +24,9 @@
 	 where #{userId}
 	</select> -->
 	
-	<select id="login" parameterType="memberVO" resultType="memberVO">
+	<select id="login" parameterType="memberVO" resultMap="memberMap">
 		select *
-		  from m_user
+		  from userinfo@test_link
 		 where id = #{id}
 		   and Password = #{Password}
 	</select>

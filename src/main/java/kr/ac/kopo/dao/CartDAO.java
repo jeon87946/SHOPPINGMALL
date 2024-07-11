@@ -25,18 +25,25 @@ public class CartDAO {
 		List<CartVO> cartList = session.selectList("item.dao.CartDAO.cart", id);
 		return cartList;
 	}
-// 장바구니 상품 확인	
+// 장바구니 상품 확인 
 	public int selectName(CartVO itemName) {
 		int cnt = session.selectOne("item.dao.CartDAO.selectName", itemName);
 		return cnt;
 	}
+	
 //	장바구니 상품 확인 후 수량 변경
 	public void update(CartVO cart) {
 		session.update("item.dao.CartDAO.updateCnt", cart);
 		session.commit();
 	}
+	
+
+	
 // 주문 후 장바구니 목록 삭제
-	/* public void delete(CartVO cart) {} */
+	 public void delete(List<CartVO> cartList) {
+		 session.delete("item.dao.CartDAO.deleteCart", cartList);
+		 session.commit();
+	 }
 	
 }
 

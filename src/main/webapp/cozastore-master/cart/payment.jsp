@@ -6,7 +6,68 @@
 <head>
 <meta charset="UTF-8">
 <title>주문서</title>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<style>
+	 body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	} 
+	
+    .order-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin:auto;
+	}
+	
+	.order-container h1 {
+    text-align: center;
+    color: #333333;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-form label {
+    margin-bottom: 5px;
+    color: #555555;
+}
+
+.order-form input,
+.order-form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.order-form button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-form button:hover {
+    background-color: #0056b3;
+}
+.logo {
+	background-size: 100px;
+	background-position: top 100px;
+}
+ </style>   	
 <script>
  let checkForm = function() {
 	
@@ -23,7 +84,7 @@
 		f.phone.focus()
 		return false
 	}
-	if(f.email.value == ''){
+	if(f.Email.value == ''){
 		alert('이메일을 입력해주세요')
 		f.email.focus()
 		return false
@@ -33,19 +94,20 @@
 		f.postcode.focus()
 		return false
 	}
-	if(f.home_address.value == ''){
+	if(f.homeAddress.value == ''){
 		alert('주소를 입력해주세요')
 		f.home_address.focus()
 		return false
 	}
-	if(f.detail_Address.value == ''){
+	if(f.detailAddress.value == ''){
 		alert('상세주소를 입력해주세요')
 		f.detail_Address.focus()
 		return false
 	}
 } 
-	
+
 </script>
+
 
 <script>
 function sample6_execDaumPostcode() {
@@ -84,99 +146,67 @@ function sample6_execDaumPostcode() {
 </script>
 </head>
 <body>
- <header class="header-v4">
+				
+   <header class="header-v4">
 	<div>
 		<jsp:include page="../include/topMenu.jsp"></jsp:include>
 	</div>
-</header> 
+	</header> 
 
 	<section>
-	<div align="center">
-	<hr>
-	<h2>주문서 작성</h2>
-	<hr>
-	<form name = "orderSheet" action="/ShoppingMall/paymentpro.do" method="post" onsubmit="return checkForm()">
-		<table style ="width:50%" border="1">
+	<div align="center" class="order-container">
+	<h1>주문서 작성</h1>
+	<form class="order-form" name = "orderSheet" action="/ShoppingMall/paymentpro.do" method="post" onsubmit="return checkForm()">
+		<!-- <table style ="width:50%" border="1"> -->
 		
-			<tr>
-				<th>이름</th>
-				<td>
-					<input type="text" name="receive" size="20%" placeholder="mm">
-				</td>
-			</tr>				
-			<tr>
-				<th width="10%">휴대전화</th>
-				<td>
-					<input type="text" name="phone" size="20%" placeholder="010-1234-5678">
-				</td>
-			</tr>
-				 <%-- </c:forEach> --%>
-			<tr>
-				<th width="50%">이메일</th>
-				<td>
-					<input type="text" name="email" size="30%" placeholder="예시) naver@naver.com">
-				</td>
-			</tr>
+		<%-- <c:forEach var="user" items="${LOGIN_USER}"> --%>
+				<label for="receive">이름</label>
+				<input type="text" name="receive" size="20%" value="${LOGIN_USER.name}">
+				
+				<label for="phone">휴대전화</label>
+				<input type="text" name="phone" size="20%" value="${LOGIN_USER.phone}">
+				
+				<label for="Email">이메일</label>
+				<input type="text" name="Email" size="30%" placeholder="예시) naver@naver.com" value="${LOGIN_USER.email}">
 			
-			<tr>
-				<th width="50%">배송메시지</th>
-				<td>
-					<input type="text" name="orderMsg" size="50%" placeholder="예시: 부재시 문앞에 두고 가주세요">
-				</td>
-			</tr>	
+				<label for="orderMge">배송메시지</label>
+				<input type="text" name="orderMsg" size="50%" placeholder="예시: 부재시 문앞에 두고 가주세요">
 
-			<tr>
-			<th>우편번호</th>
-			  <td>
-			    <input type="text" name="postcode" size="7" id="sample6_postcode" placeholder="우편번호">
+			<label for="postcode">우편번호</label>
+			    <input type="text" name="postcode" size="7" id="sample6_postcode" placeholder="우편번호"  value="${LOGIN_USER.postcode}">
 			    <input type="button" class="btn btn-primary btn-sm" value="우편번호찾기" onclick="sample6_execDaumPostcode()">
-			  </td>
-			</tr>
-			<tr>
-			  <th>주소</th>
-			  <td>
-			    <input type="text" name="home_address" size="40" id="sample6_address" placeholder="주소">
+			 <label for="homeAddress">주소</label>
+			    <input type="text" name="homeAddress" size="40" id="sample6_address" placeholder="주소" value="${LOGIN_USER.homeAddress}">
+			 <label for="detailAddress">상세주소</label>
 			    <br>
-			    <input type="text" name="detail_Address" size="40" id="sample6_address2" placeholder="상세주소">
-			  </td>
-			</tr>
+			    <input type="text" name="detailAddress" size="40" id="sample6_address2" placeholder="상세주소" value="${LOGIN_USER.detailAddress}">
+			<%-- </c:forEach> --%>
+			<table>
 			<tr>
 			<th>결제방법 : </th>
 			<td><input type="radio" value="무통장" checked/>무통장
-				<input type="radio" value="카드" />카드
-			</td>		
-			
-			</tr>				
-</table>	
+				<!-- <input type="radio" value="카드" />카드 -->
+			</td>
+			</tr>		
+			</table>
 				
-		<c:choose>
-		<c:when test="${not empty order}"> <!-- PaymentController  -->
-			<input type="text"  name="itemPrice" value= "${order.itemPrice}">
-			<input type="text"  name="itemName" value= "${order.itemName}">
-			<input type="text"  name="itemCnt" value= "${order.itemCnt}">
-			<input type="text"  name="itemCode" value= "${order.itemCode}">
-			<input type="text" name="id" value="${order.id}">
-		</c:when>
-		<c:when test="${not empty cartList}"> <!-- CartDetailController -->
-		<c:forEach var="cart" items="${cartList}">
-			<input type="hidden"  name="itemPrice" value= "${cart.itemPrice}">
-			<input type="hidden"  name="itemName" value= "${cart.itemName}">
-			<input type="hidden"  name="itemCnt" value= "${cart.itemCnt}">
-			<input type="hidden"  name="itemCode" value= "${cart.itemCode}">
-			<input type="hidden"  name="id" value= "${cart.id}">
-		</c:forEach>		
-		</c:when>		
-		</c:choose>
+		<c:forEach var="order" items="${orderList}">
+			<input type="hidden"  name="itemPrice" value= "${order.itemPrice}">
+			<input type="hidden"  name="itemName" value= "${order.itemName}">
+			<input type="hidden"  name="itemCnt" value= "${order.itemCnt}">
+			<input type="hidden"  name="itemCode" value= "${order.itemCode}">
+		</c:forEach>
 			
-			<button type="submit">결제</button>
+			<button type="submit">주문하기</button>
 
 			
 </form>
-</section>
 </div>	
+</section>
  <!-- Footer -->
-	<footer>
+	 <footer>
 		<jsp:include page="../include/footer.jsp" />
-	</footer>
+	</footer> 
+	
 </body>
 </html> 	

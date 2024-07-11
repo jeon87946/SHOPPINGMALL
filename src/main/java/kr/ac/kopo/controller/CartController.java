@@ -37,6 +37,7 @@ public class CartController implements Controller {
 		  cartVO.setItemName(itemName);
 		  cartVO.setItemCode(itemCode);
 		  
+		  //상품 있는지 확인 후 수량변경
 		  CartDAO dao = new CartDAO();
 		  int cnt = dao.selectName(cartVO);
 		  
@@ -44,7 +45,7 @@ public class CartController implements Controller {
 		  if(cnt == 0) {
 		  dao.insert(cartVO);
 		  session.setAttribute("orderList", cartVO);
-		  }else if(cnt <= 1) {
+		  }else if(cnt >= 1) {
 			  dao.update(cartVO);
 			  session.setAttribute("orderList", cartVO);
 			 

@@ -214,7 +214,7 @@ function paymentOneItem(){
 									<div class="wrap-pic-w pos-relative">
 										<img src="${item.itemImg5}" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.item_Img5}">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${item.itemImg5}">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
@@ -359,9 +359,9 @@ function paymentOneItem(){
 							<a class="nav-link" data-toggle="tab" href="#information" role="tab">세부사항</a>
 						</li>
 
-						<li class="nav-item p-b-10">
-							<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
-						</li>
+						<!-- <li class="nav-item p-b-10">
+							<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews</a>
+						</li> -->
 					</ul>
 
 						<!--Tab panes -->
@@ -545,7 +545,7 @@ function paymentOneItem(){
 			<!-- Slide2 ---->
 			<div class="wrap-slick2">
 				<div class="slick2">
-			<c:forEach var="item" items="${itemList}">
+			<c:forEach var="item" items="${ItemList}">
 					<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
 						<!-- Block2 -->
 						<div class="block2">
@@ -581,6 +581,7 @@ function paymentOneItem(){
 							</div>
 						</c:forEach>
 						</div>
+					</div>
 					</div>
 					
 

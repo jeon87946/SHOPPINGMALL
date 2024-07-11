@@ -4,10 +4,16 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace = "payment.dao.paymentDAO">
-
+<resultMap type="PaymentVO" id="paymentMap">
+	<result column="order_num" property="homeAddress"/>
+	<result column="home_address" property="homeAddress"/>
+	<result column="detail_address" property="detailAddress"/>
+	<result column="order_msg" property="orderMsg"/>
+</resultMap>
+	
 	<insert id = "insert" parameterType="paymentVO">
-	insert into order_sheet(order_Num, receive, PHONE, Email, POSTCODE, HOME_Address, detail_Address, order_Msg)
-	VALUES(#{orderNum}, #{receive}, #{phone}, #{Email}, #{postcode}, #{homeAddress}, #{detailAddress}, #{orderMsg})
+	insert into order_sheet(no, order_Num, receive, PHONE, Email, POSTCODE, HOME_Address, detail_Address, order_Msg)
+	VALUES(seq_order_sheet_no.nextval, #{orderNum}, #{receive}, #{phone}, #{Email}, #{postcode}, #{homeAddress}, #{detailAddress}, #{orderMsg})
 	</insert>
 
 </mapper>

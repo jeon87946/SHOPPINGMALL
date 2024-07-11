@@ -1,5 +1,8 @@
 package kr.ac.kopo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,21 +24,32 @@ public class PaymentFormController implements Controller {
 			return "redirect:/login.do";
 		}
 		
-		  String id = request.getParameter("id");
-		  int itemPrice = Integer.parseInt(request.getParameter("itemPrice")); 
-		  int itemCnt = Integer.parseInt(request.getParameter("itemCnt")); 
-		  String itemCode = request.getParameter("itemCode"); 
-		  String itemName = request.getParameter("itemName");
+		  String[] itemPriceStr = request.getParameterValues("itemPrice");
+		  int[] itemPrice = new int[itemPriceStr.length];
+		  for (int i = 0; i < itemPriceStr.length; i++) {
+			  itemPrice[i] = Integer.parseInt(itemPriceStr[i]);
+		    }
 		  
-		  OrderVO order = new OrderVO();
+		  String[] itemCntStr = request.getParameterValues("itemCnt"); 
+		  int[]	itemCnt = new int[itemCntStr.length];
+		  for (int i = 0; i < itemCntStr.length; i++) {
+			  itemCnt[i] = Integer.parseInt(itemCntStr[i]);
+		    }
 		  
-		  order.setId(id);
-		  order.setItemPrice(String.valueOf(itemPrice*itemCnt)); 
-		  order.setItemCode(itemCode);
-		  order.setItemCnt(itemCnt); 
-		  order.setItemName(itemName);
+		  String[] itemCode = request.getParameterValues("itemCode"); 
+		  String[] itemName = request.getParameterValues("itemName");
 		  
-		  request.setAttribute("order", order);
+		  
+		  List<OrderVO> orderList = new ArrayList<>();
+		  for(int i=0;i<itemPriceStr.length;i++) {
+			  OrderVO order = new OrderVO();
+			  order.setItemPrice(String.valueOf(itemPrice[i]*itemCnt[i])); 
+			  order.setItemCode(itemCode[i]);
+			  order.setItemCnt(itemCnt[i]); 
+			  order.setItemName(itemName[i]);
+			  orderList.add(order);
+		  }
+		  request.setAttribute("orderList", orderList);
 		 
 		
 		return "/cozastore-master/cart/payment.jsp";

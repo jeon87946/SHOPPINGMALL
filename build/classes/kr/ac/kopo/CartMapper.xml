@@ -6,19 +6,27 @@
   
   <mapper namespace = "item.dao.CartDAO">
   
+  <resultMap type="cartVO" id="cartMap">
+	<result column="item_price" property="itemPrice"/>
+	<result column="item_name" property="itemName"/>
+	<result column="item_cnt" property="itemCnt"/>
+	<result column="item_code" property="itemCode"/>
+  </resultMap>	
+  
   <!--장바구니 넣기  -->
   	<insert id = "insert" parameterType="CartVO" >
   		insert into cart(no, id, item_Price, item_Name, item_Cnt, item_Code)
   		values ( seq_cart_no.nextval, #{id}, #{itemPrice}, #{itemName}, #{itemCnt}, #{itemCode})
   	</insert>
   	
-  		<!-- 아이템 하나 조회(아이디별) -->
- 	<select id = "cart" resultType="CartVO">
+  	<!-- 아이템 하나 조회(아이디별) -->
+ 	<select id = "cart" resultMap="cartMap"> <!-- resultMap을 해 줄 때는 resultType(x) resultMap(o) -->
  		SELECT * 
  		  FROM cart 
  		WHERE id = #{id}
  	</select>	
- 	<!--장바구니 상품 확인  -->
+ 	
+ 	<!--장바구니 상품 확인  //수량변경-->
  	<select id = "selectName" parameterType="CartVO" resultType="int">
   SELECT count(*) AS cnt
 	FROM CART
@@ -29,11 +37,18 @@
  	<!-- 장바구니 수량 변경 -->
  	<update id = "updateCnt" parameterType="CartVO">
  		UPDATE CART 
-  		   SET ITEM_CNT = ITEMCNT + #{itemCnt}
+  		   SET ITEM_CNT = ITEM_CNT + #{itemCnt}
 		 WHERE ITEM_NAME = #{itemName}
  	</update>
  	
- 	<delete id="">
- 		
+ 	
+ 	
+ 
+ 	
+ 	<!-- 장바구니 삭제 -->
+ 	<delete id="deleteCart" parameterType="CartVO">
+ 		 <foreach collection="list" item="cart" separator=";" open="DECLARE BEGIN" close="; END;">
+ 			DELETE FROM CART WHERE id = #{cart.id} AND item_Code = #{cart.itemCode}
+ 		</foreach>	
  	</delete>
   </mapper>

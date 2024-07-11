@@ -3,10 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "order.dao.orderDAO">
+<mapper namespace="order.dao.orderDAO">
+  <resultMap type="OrderVO" id="orderMap">
+    <result column="order_date" property="orderDate"/>
+    <result column="order_num" property="orderNum"/>
+    <result column="item_price" property="itemPrice"/>
+    <result column="item_cnt" property="itemCnt"/>
+    <result column="item_code" property="itemCode"/>
+    <result column="item_name" property="itemName"/>
+  </resultMap>
 
-	<insert id = "insert"  parameterType="orderVO">
-		insert into ORDER_INFO(order_num, item_price, item_cnt, item_code, item_name, id)
-		values (#{orderNum}, #{itemPrice}, #{itemCnt}, #{itemCode}, #{itemName}, #{id})
-	</insert>
+  <insert id="insert" parameterType="java.util.List">
+    <foreach collection="list" item="order" separator=";" open="DECLARE BEGIN" close="; END;">
+    INSERT INTO ORDER_INFO (no, order_num, item_price, item_cnt, item_code, item_name, id) VALUES
+      (seq_order_info_no.nextval, #{order.orderNum}, #{order.itemPrice}, #{order.itemCnt}, #{order.itemCode}, #{order.itemName}, #{order.id})
+    </foreach>
+  </insert>
+  
+  <select id="orderAll" resultMap="orderMap"  parameterType= "String" >
+ 		select *
+ 		  from order_info
+ 		 where ID = #{id}
+ 		 ORDER BY order_date  
+ 	</select>
+ 	
 </mapper>

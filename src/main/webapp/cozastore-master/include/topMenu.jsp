@@ -14,15 +14,16 @@
 					<div class="right-top-bar flex-w h-full">
 				<c:choose>
 					<c:when test="${not empty LOGIN_USER}">
-						<a href="/ShoppingMall/shopping-cart.do" class="flex-c-m trans-04 p-lr-25">
+						<a href="/ShoppingMall/mypage.do" class="flex-c-m trans-04 p-lr-25">
 							마이페이지
 						</a>
+						<a href="/ShoppingMall/logout.do"  class="flex-c-m trans-04 p-lr-25">로그아웃</a>
 					</c:when>
 					<c:otherwise>
 						<a href="/ShoppingMall/login.do" class="flex-c-m trans-04 p-lr-25">
 							로그인
 						</a>
-						<a href="/ShoppingMall/join.do" class="flex-c-m trans-04 p-lr-25">
+						<a href="http://172.31.9.180:8080/ShoppingMall-total/SignUpForm.do" class="flex-c-m trans-04 p-lr-25">
 							가입하기
 						</a>
 					</c:otherwise>
@@ -75,9 +76,9 @@
 								<a href="/ShoppingMall/product.do">상품</a>
 							</li>
 
-							<li><!-- data-label1="hot" -->
 						<c:choose>
 							<c:when test="${not empty LOGIN_USER}">
+							<li><!-- data-label1="hot" -->
 								<a href="/ShoppingMall/shopping-cart.do">장바구니</a>
 							</li>
 							</c:when>
@@ -103,13 +104,13 @@
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search data-notify="-">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0" >
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" data-notify="0" >
 							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+						</div>
 					</div>
 				</nav>
 			</div>	

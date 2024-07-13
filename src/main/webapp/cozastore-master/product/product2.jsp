@@ -384,7 +384,7 @@
 			
 			
 			 <div class="row isotope-grid">
-			 <c:forEach var="item" items="${itemList}" begin="13" end="17"> 
+			 <c:forEach var="item" items="${itemList}" begin="13" end="25"> 
 			 <%-- <c:forEach var="item" items="${itemList}"> --%>
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->

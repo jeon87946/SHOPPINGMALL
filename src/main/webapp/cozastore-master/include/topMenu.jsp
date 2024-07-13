@@ -17,7 +17,11 @@
 						<a href="/ShoppingMall/mypage.do" class="flex-c-m trans-04 p-lr-25">
 							마이페이지
 						</a>
-						<a href="/ShoppingMall/logout.do"  class="flex-c-m trans-04 p-lr-25">로그아웃</a>
+						<a href="/ShoppingMall/logout.do"  class="flex-c-m trans-04 p-lr-25">로그아웃
+						</a>
+						<a href="http://172.31.9.180:8080/ShoppingMall-total/shoppingmallPortalWEB.do" class="flex-c-m trans-04 p-lr-25">
+						통합 Portal
+						</a>
 					</c:when>
 					<c:otherwise>
 						<a href="/ShoppingMall/login.do" class="flex-c-m trans-04 p-lr-25">
@@ -25,6 +29,9 @@
 						</a>
 						<a href="http://172.31.9.180:8080/ShoppingMall-total/SignUpForm.do" class="flex-c-m trans-04 p-lr-25">
 							가입하기
+						</a>
+						<a href="http://172.31.9.180:8080/ShoppingMall-total/shoppingmallPortalWEB.do" class="flex-c-m trans-04 p-lr-25">
+						통합 Portal
 						</a>
 					</c:otherwise>
 				</c:choose>		

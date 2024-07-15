@@ -48,6 +48,13 @@
  		 ORDER BY ITEM_CODE  
  	</select>
  	
- 	
+ 	<!-- 결제 후 재고 수량 줄이기 -->
+ 	<update id = "updateCnt" parameterType="itemInfoVO">
+ 	   <foreach collection="list" item="item" separator=";" open="DECLARE BEGIN" close="; END;">
+ 		UPDATE ITEM_INFO 
+  		   SET ITEM_CNT = ITEM_CNT - #{item.ItemCnt}
+  		 WHERE ITEM_NAME = #{item.ItemName}
+  		</foreach>	  
+ 	</update>
  	
   </mapper>

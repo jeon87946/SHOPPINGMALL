@@ -41,6 +41,23 @@ public class ItemDAO {
 		return item;
 	}
 	 
+	//결제 후 상품 재고수량 삭제
+	
+	 public void update(List<ItemInfoVO> itemList) {
+	 session.update("item.dao.ItemDAO.updateCnt", itemList); 
+	 session.commit();
+	 System.out.println("ITEMDAO"+itemList); }
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//상품 정보 페이지

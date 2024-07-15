@@ -40,15 +40,13 @@
   		   SET ITEM_CNT = ITEM_CNT + #{itemCnt}
 		 WHERE ITEM_NAME = #{itemName}
  	</update>
- 	
- 	
- 	
  
- 	
  	<!-- 장바구니 삭제 -->
  	<delete id="deleteCart" parameterType="CartVO">
  		 <foreach collection="list" item="cart" separator=";" open="DECLARE BEGIN" close="; END;">
  			DELETE FROM CART WHERE id = #{cart.id} AND item_Code = #{cart.itemCode}
  		</foreach>	
  	</delete>
+ 	
+ 	
   </mapper>

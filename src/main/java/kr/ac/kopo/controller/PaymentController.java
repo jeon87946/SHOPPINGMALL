@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.ac.kopo.dao.CartDAO;
+import kr.ac.kopo.dao.ItemDAO;
 import kr.ac.kopo.dao.OrderDAO;
 import kr.ac.kopo.dao.PaymentDAO;
 import kr.ac.kopo.framework.Controller;
 import kr.ac.kopo.vo.CartVO;
+import kr.ac.kopo.vo.ItemInfoVO;
 import kr.ac.kopo.vo.MemberVO;
 import kr.ac.kopo.vo.OrderVO;
 import kr.ac.kopo.vo.PaymentVO;
@@ -89,7 +91,7 @@ public class PaymentController implements Controller {
 			  order.setId(id);
 			  orderList.add(order);
 		  }
-		 
+		 ///////////////////결제 완료되면 쇼핑카트에서 해당 상품 삭제하기///////////////////
 		  List<CartVO> cartList = new ArrayList<>();
 		  for(int i=0; i<itemPriceStr.length; i++) {
 			  CartVO cart = new CartVO();
@@ -99,6 +101,19 @@ public class PaymentController implements Controller {
 			  cartList.add(cart);
 		  }
 		  
+//////////////////////////////////////결제 완료되면 재고 수량 하나 삭제//////////////////////////////////////  
+		
+		
+		
+			 List<ItemInfoVO> itemList = new ArrayList<>(); 
+			 for(int i=0;i<itemPriceStr.length; i++) { 
+				 ItemInfoVO item = new ItemInfoVO();
+				 item.setItemCnt(itemCnt[i]); 
+				 item.setItemName(itemName[i]);
+			 
+			 itemList.add(item); 
+			 }
+			 
 		
 		  
 		//주문자(회원) 정보 db에 저장하기
@@ -112,7 +127,14 @@ public class PaymentController implements Controller {
 		//결제 완료 후에 쇼핑카트에서 상품 삭제하기
 		CartDAO cartdao = new CartDAO();
 		cartdao.delete(cartList);
+
+		//결제 완료 후에 아이템인포에서 재고수량 변경하기
 		
+		
+		 ItemDAO itemdao = new ItemDAO(); 
+		 itemdao.update(itemList);
+		 
+		 
 		
 		
 		
@@ -124,6 +146,7 @@ public class PaymentController implements Controller {
 		
 		request.setAttribute("cartList", cartList);
 		
+		session.setAttribute("itemList", itemList);
 	 
 		return "cozastore-master/cart/Complete.jsp";
 	}
